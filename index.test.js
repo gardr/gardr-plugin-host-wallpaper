@@ -15,9 +15,9 @@ describe('plugin', function () {
 		expect(spy).to.have.been.calledWith('item:afterrender');
 	});
 	
-	it('should put background image on body', function () {
+	it('should put a no tiling background image on body', function () {
 		var imageUrl = 'http://www.test.com/fooimage';
-		var expectedStyle = 'url(' + imageUrl + ') 0% 0% repeat fixed';
+		var expectedStyle = 'url(' + imageUrl + ') 0% 0% no-repeat fixed';
 		plugin(pluginApi, {});
 		
 		var options = {
@@ -31,6 +31,24 @@ describe('plugin', function () {
 		expect(document.body.style.background).to.equal(expectedStyle);
 	});	
 	
+	it('should put a tiling background image on body', function () {
+		var imageUrl = 'http://www.test.com/fooimage';
+		var tiling = 'yes';
+		var expectedStyle = 'url(' + imageUrl + ') 0% 0% repeat fixed';
+		plugin(pluginApi, {});
+		
+		var options = {
+			rendered : {
+				wallpaperimage : imageUrl,
+				wallpapertiling : tiling
+			}
+		};
+		
+		pluginApi.trigger('item:afterrender', options);
+		
+		expect(document.body.style.background).to.equal(expectedStyle);
+	});	
+
 	it('should set background color on body', function() {
 		var color = 'rgb(255, 136, 51)';
 		plugin(pluginApi, {});

@@ -1,6 +1,6 @@
 {
   "name": "gardr-plugin-host-wallpaper",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Gardr host plugin receiving a wallpaper url and puts it on the body as a background",
   "main": "index.js",
   "scripts": {

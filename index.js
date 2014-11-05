@@ -6,7 +6,7 @@ function wallpaperPlugin (gardrPluginApi, options) {
 
 function onBannerRendered (item) {
 	if (item.rendered.wallpaperimage) {
-		createWallpaperByUrl(item.rendered.wallpaperimage, item.rendered.wallpapercolor);
+		createWallpaperByUrl(item.rendered.wallpaperimage, item.rendered.wallpapertiling, item.rendered.wallpapercolor);
 		if (item.rendered.wallpaperclick) {
 			listenToBodyClicks(item.rendered.wallpaperclick);
 		}
@@ -16,8 +16,9 @@ function onBannerRendered (item) {
 	}
 }
 
-function createWallpaperByUrl (url, color) {
-	var css = 'url(' + url + ') 0% 0% repeat fixed ' + (color || '');
+function createWallpaperByUrl (url, tiling, color) {
+	var repeat = (tiling === 'yes' || tiling === 'true') ? 'repeat' : 'no-repeat';
+	var css = 'url(' + url + ') 0% 0% ' + repeat + ' fixed ' + (color || '');
 	setBodyBackground(css);
 }
 
