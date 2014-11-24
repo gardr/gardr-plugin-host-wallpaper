@@ -17,7 +17,7 @@ describe('plugin', function () {
 	
 	it('should put a no tiling background image on body', function () {
 		var imageUrl = 'http://www.test.com/fooimage';
-		var expectedStyle = 'url(' + imageUrl + ') 0% 0% no-repeat fixed';
+		var expectedStyle = 'url(' + imageUrl + ') 50% 0% no-repeat fixed';
 		plugin(pluginApi, {});
 		
 		var options = {
@@ -34,7 +34,7 @@ describe('plugin', function () {
 	it('should put a tiling background image on body', function () {
 		var imageUrl = 'http://www.test.com/fooimage';
 		var tiling = 'yes';
-		var expectedStyle = 'url(' + imageUrl + ') 0% 0% repeat fixed';
+		var expectedStyle = 'url(' + imageUrl + ') 50% 0% repeat fixed';
 		plugin(pluginApi, {});
 		
 		var options = {

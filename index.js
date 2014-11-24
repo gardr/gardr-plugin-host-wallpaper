@@ -18,7 +18,7 @@ function onBannerRendered (item) {
 
 function createWallpaperByUrl (url, tiling, color) {
 	var repeat = (tiling === 'yes' || tiling === 'true') ? 'repeat' : 'no-repeat';
-	var css = 'url(' + url + ') 0% 0% ' + repeat + ' fixed ' + (color || '');
+	var css = 'url(' + url + ') 50% 0% ' + repeat + ' fixed ' + (color || '');
 	setBodyBackground(css);
 }
 
